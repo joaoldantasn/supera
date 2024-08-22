@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "b32d88e0-9c73-4035-a4af-8ff2e234f2e5",
+		"name": "SUPERA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20001498",
+		"_collection_link": "https://warped-flare-234439.postman.co/workspace/estudos~c357a810-8bd1-4117-8ef4-af8666d3ddad/collection/20001498-b32d88e0-9c73-4035-a4af-8ff2e234f2e5?action=share&source=collection_link&creator=20001498"
+	},
+	"item": [
+		{
+			"name": "desafio",
+			"item": [
+				{
+					"name": "listaTarefas",
+					"item": [
+						{
+							"name": "AllListas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/listas-tarefas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"listas-tarefas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/listas-tarefas/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"listas-tarefas",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateLista",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"teste\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"teste4\",\r\n            \"descricao\": \"teste4\",\r\n            \"dataConclusao\": null,\r\n            \"dataPrevistaConclucao\": \"2024-08-25\",\r\n            \"concluida\": false,\r\n            \"favorita\": true\r\n        },\r\n             {\r\n            \"titulo\": \"teste5\",\r\n            \"descricao\": \"teste5\",\r\n            \"dataConclusao\": null,\r\n            \"dataPrevistaConclucao\": \"2024-08-25\",\r\n            \"concluida\": false,\r\n            \"favorita\": true\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/listas-tarefas/atualizar/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"listas-tarefas",
+										"atualizar",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteLista",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"teste\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"teste4\",\r\n            \"descricao\": \"teste4\",\r\n            \"dataConclusao\": null,\r\n            \"dataPrevistaConclucao\": \"2024-08-21\",\r\n            \"concluida\": false,\r\n            \"favorita\": true\r\n        },\r\n             {\r\n            \"titulo\": \"teste5\",\r\n            \"descricao\": \"teste5\",\r\n            \"dataConclusao\": null,\r\n            \"dataPrevistaConclucao\": \"2024-08-21\",\r\n            \"concluida\": false,\r\n            \"favorita\": true\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/listas-tarefas/deletar/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"listas-tarefas",
+										"deletar",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AdiconarLista",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/listas-tarefas/adicionar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"listas-tarefas",
+										"adicionar"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tarefas",
+					"item": [
+						{
+							"name": "AllTarefas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/tarefas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tarefas"
+									],
+									"query": [
+										{
+											"key": "concluida",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "favorita",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tarefa",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/tarefas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tarefas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateTarefa",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"titulo\": \"Atualizar sistema de login\",\r\n  \"descricao\": \"Implementar autenticação via OAuth\",\r\n  \"dataConclusao\": \"2024-08-21\",\r\n  \"dataPrevistaConclucao\": \"2024-08-30\",\r\n  \"concluida\": true,\r\n  \"favorita\": false,\r\n  \"subtarefas\": [\r\n    \r\n    {\r\n      \"nome\": \"Configurar OAuth\"\r\n    },\r\n    {\r\n      \"nome\": \"Testar autenticação\"\r\n    },\r\n    {\r\n      \"nome\": \"Atualizar documentação\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/tarefas/atualizar/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tarefas",
+										"atualizar",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteTarefa",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"teste\",\r\n    \"tarefas\": [\r\n        {\r\n            \"titulo\": \"teste4\",\r\n            \"descricao\": \"teste4\",\r\n            \"dataConclusao\": null,\r\n            \"dataPrevistaConclucao\": \"2024-08-21\",\r\n            \"concluida\": false,\r\n            \"favorita\": true\r\n        },\r\n             {\r\n            \"titulo\": \"teste5\",\r\n            \"descricao\": \"teste5\",\r\n            \"dataConclusao\": null,\r\n            \"dataPrevistaConclucao\": \"2024-08-21\",\r\n            \"concluida\": false,\r\n            \"favorita\": true\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/tarefas/deletar/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tarefas",
+										"deletar",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AdiconarTarefa",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "            {\r\n                \"titulo\": \"teste leite\",\r\n                \"descricao\": \"Comprar 2 litros de leite\",\r\n                \"dataConclusao\": \"2024-08-30\",\r\n                \"dataPrevistaConclucao\": \"2024-10-21\",\r\n                \"concluida\": true,\r\n                \"favorita\": false\r\n            }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/tarefas/criar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tarefas",
+										"criar"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "subtarefa",
+					"item": [
+						{
+							"name": "Get By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/sub-tarefas/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sub-tarefas",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/sub-tarefas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sub-tarefas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update By Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/sub-tarefas/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sub-tarefas",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

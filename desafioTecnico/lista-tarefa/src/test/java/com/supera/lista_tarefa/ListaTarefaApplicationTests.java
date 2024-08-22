@@ -10,4 +10,9 @@ class ListaTarefaApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+    void applicationStarts() {
+        // Testa se a aplicação inicia corretamente
+        ListaTarefaApplication.main(new String[] {});
+    }
 }
