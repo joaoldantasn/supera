@@ -33,6 +33,11 @@ public class ListaTarefa {
 
 	@OneToMany(mappedBy = "listaTarefa", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Tarefa> tarefas = new HashSet<>();
+	
+	public ListaTarefa(Long id, String titulo) {
+		this.id = id;
+		this.titulo = titulo;
+	}
 
 	public Long getId() {
 		return id;
@@ -57,5 +62,7 @@ public class ListaTarefa {
 	public void setTarefas(Set<Tarefa> tarefas) {
 		this.tarefas = tarefas;
 	}
+
+
 
 }
