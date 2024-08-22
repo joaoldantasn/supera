@@ -18,8 +18,6 @@ import com.supera.lista_tarefa.model.Tarefa;
 import com.supera.lista_tarefa.repositories.ListaTarefaRepository;
 import com.supera.lista_tarefa.repositories.TarefaRepository;
 
-
-
 @Service
 public class ListaTarefaService {
 
