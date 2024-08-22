@@ -1,0 +1,4 @@
+INDEX VERSION 1.132+D:\Workspace\superaJava\desafioLogico\.metadata\.plugins\org.eclipse.jdt.core
+222939379.index
+1865797976.index
+668905513.index
