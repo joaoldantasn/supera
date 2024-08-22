@@ -2,7 +2,6 @@ package com.supera.lista_tarefa.services;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -57,6 +56,11 @@ public class ListaTarefaService {
         listaTarefa = repository.save(listaTarefa);
         return listaTarefaDTOMapper.apply(listaTarefa);
     }
+	
+	@Transactional
+	public void deleteListaTarefa(Long id) {
+		repository.deleteById(id);
+	}
 }
 
 

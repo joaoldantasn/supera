@@ -7,6 +7,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,5 +48,12 @@ public class ListaTarefaController {
 		// criada
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdListaTarefa);
 	}
+	
+    // Endpoint para deletar lista de tarefas
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<Void> deleteListaTarefa(@PathVariable Long id) {
+        service.deleteListaTarefa(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }
