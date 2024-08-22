@@ -6,10 +6,12 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.supera.lista_tarefa.dtos.tarefa.TarefaComSubDTO;
 import com.supera.lista_tarefa.dtos.tarefa.TarefaDTO;
 import com.supera.lista_tarefa.services.TarefaService;
 
@@ -31,5 +33,12 @@ public class TarefaController {
         Page<TarefaDTO> tarefaPage = tarefaService.findAll(page, pageSize, concluida, favorita);
         return assembler.toModel(tarefaPage);
     }
+	
+	@GetMapping("/{id}")
+    public TarefaComSubDTO getTarefaById(@PathVariable Long id) {
+        return tarefaService.findById(id);
+    }
+	
+	
 	
 }

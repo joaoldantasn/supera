@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.supera.lista_tarefa.dtos.mapper.TarefaSubDTOMapper;
+import com.supera.lista_tarefa.dtos.tarefa.TarefaComSubDTO;
 import com.supera.lista_tarefa.dtos.tarefa.TarefaDTO;
 import com.supera.lista_tarefa.model.Tarefa;
 import com.supera.lista_tarefa.repositories.SubTarefaRepository;
@@ -17,32 +19,41 @@ import com.supera.lista_tarefa.repositories.TarefaRepository;
 public class TarefaService {
 
 	private final TarefaRepository repository;
+	private final TarefaSubDTOMapper tarefaSubDTOMapper;
 	private final SubTarefaRepository subTarefaRepository;
-	
-	public TarefaService(TarefaRepository repository, SubTarefaRepository subTarefaRepository) {
+
+	public TarefaService(TarefaRepository repository, TarefaSubDTOMapper tarefaSubDTOMapper,
+			SubTarefaRepository subTarefaRepository) {
 		this.repository = repository;
+		this.tarefaSubDTOMapper = tarefaSubDTOMapper;
 		this.subTarefaRepository = subTarefaRepository;
 	}
-	
+
 	@Transactional(readOnly = true)
-    public Page<TarefaDTO> findAll(Integer page, Integer pageSize, Boolean concluida, Boolean favorita) {
-        page = Optional.ofNullable(page).orElse(0);
-        pageSize = Math.min(Optional.ofNullable(pageSize).orElse(6), 15);
+	public Page<TarefaDTO> findAll(Integer page, Integer pageSize, Boolean concluida, Boolean favorita) {
+		page = Optional.ofNullable(page).orElse(0);
+		pageSize = Math.min(Optional.ofNullable(pageSize).orElse(6), 15);
 
-        Pageable pageable = PageRequest.of(page, pageSize);
-        Page<Tarefa> tarefaPage;
-        if(concluida != null) {
-            tarefaPage = repository.findByConcluida(concluida, pageable);
-        }
-        else if(favorita != null) {
-            tarefaPage = repository.findByFavorita(favorita, pageable);
-        }
-        else {
-            tarefaPage = repository.findAll(pageable);
-        }
+		Pageable pageable = PageRequest.of(page, pageSize);
+		Page<Tarefa> tarefaPage;
+		if (concluida != null) {
+			tarefaPage = repository.findByConcluida(concluida, pageable);
+		} else if (favorita != null) {
+			tarefaPage = repository.findByFavorita(favorita, pageable);
+		} else {
+			tarefaPage = repository.findAll(pageable);
+		}
 
-        return tarefaPage.map(TarefaDTO::new);
-    }
+		return tarefaPage.map(TarefaDTO::new);
+	}
 
-	
+	@Transactional(readOnly = true)
+	public TarefaComSubDTO findById(Long id) {
+		// Procura pela tarefa, se nao acha lança exception
+		Tarefa tarefa = repository.findById(id)
+				.orElseThrow(() -> new RuntimeException(String.format("Tarefa de ID '%d' não foi encontrada.", id)));
+		// Mapea a tarefa para DTO no serviço de mapeador
+		return tarefaSubDTOMapper.apply(tarefa);
+	}
+
 }

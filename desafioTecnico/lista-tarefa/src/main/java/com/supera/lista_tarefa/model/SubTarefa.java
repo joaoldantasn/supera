@@ -35,7 +35,7 @@ public class SubTarefa {
     @JsonIgnore
     private Tarefa tarefa;
 
-    public SubTarefa(Long id, @NotBlank @Size(min = 3) String nome) {
+    public SubTarefa(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
