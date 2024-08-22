@@ -10,8 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.supera.lista_tarefa.dtos.ListaComTarefaDTO;
-import com.supera.lista_tarefa.dtos.ListaTarefaDTO;
+import com.supera.lista_tarefa.dtos.listatarefa.ListaComTarefaDTO;
+import com.supera.lista_tarefa.dtos.listatarefa.ListaTarefaDTO;
 import com.supera.lista_tarefa.dtos.mapper.ListaTarefaDTOMapper;
 import com.supera.lista_tarefa.model.ListaTarefa;
 import com.supera.lista_tarefa.model.Tarefa;

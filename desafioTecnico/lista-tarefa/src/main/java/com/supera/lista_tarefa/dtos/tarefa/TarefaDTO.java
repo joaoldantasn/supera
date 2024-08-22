@@ -1,4 +1,4 @@
-package com.supera.lista_tarefa.dtos;
+package com.supera.lista_tarefa.dtos.tarefa;
 
 import java.time.LocalDate;
 

@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.supera.lista_tarefa.dtos.ListaComTarefaDTO;
-import com.supera.lista_tarefa.dtos.ListaTarefaDTO;
+import com.supera.lista_tarefa.dtos.listatarefa.ListaComTarefaDTO;
+import com.supera.lista_tarefa.dtos.listatarefa.ListaTarefaDTO;
 import com.supera.lista_tarefa.services.ListaTarefaService;
 
 @RestController

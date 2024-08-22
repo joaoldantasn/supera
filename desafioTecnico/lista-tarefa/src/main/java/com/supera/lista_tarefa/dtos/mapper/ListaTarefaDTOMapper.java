@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.supera.lista_tarefa.dtos.ListaComTarefaDTO;
-import com.supera.lista_tarefa.dtos.TarefaDTO;
+import com.supera.lista_tarefa.dtos.listatarefa.ListaComTarefaDTO;
+import com.supera.lista_tarefa.dtos.tarefa.TarefaDTO;
 import com.supera.lista_tarefa.model.ListaTarefa;
 @Service
 public class ListaTarefaDTOMapper implements Function<ListaTarefa, ListaComTarefaDTO>{
