@@ -47,5 +47,16 @@ public class ListaTarefaService {
 
 	    return listaTarefaDTOMapper.apply(listaTarefa);
 	}
+	
+	@Transactional
+    public ListaComTarefaDTO createListaTarefas(ListaTarefaDTO dto) {
+        
+        ListaTarefa listaTarefa = new ListaTarefa();
+        listaTarefa.setTitulo(dto.titulo());
 
+        listaTarefa = repository.save(listaTarefa);
+        return listaTarefaDTOMapper.apply(listaTarefa);
+    }
 }
+
+
