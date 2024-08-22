@@ -59,6 +59,20 @@ public class Tarefa {
 
     @OneToMany(mappedBy = "tarefa", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<SubTarefa> subtarefas = new HashSet<>();
+    
+	public Tarefa(Long id,
+			String titulo,
+			String descricao, LocalDate dataConclusao,LocalDate dataPrevistaConclucao,
+			boolean concluida, boolean favorita) {
+		this.id = id;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.dataConclusao = dataConclusao;
+		this.dataPrevistaConclucao = dataPrevistaConclucao;
+		this.concluida = concluida;
+		this.favorita = favorita;
+	}
+    
 
 	public Long getId() {
 		return id;

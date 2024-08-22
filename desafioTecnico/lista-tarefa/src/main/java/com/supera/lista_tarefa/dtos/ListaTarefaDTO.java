@@ -5,12 +5,12 @@ import com.supera.lista_tarefa.model.ListaTarefa;
 import lombok.Builder;
 
 @Builder
-public record ListaTarefaRecordDTO(
+public record ListaTarefaDTO(
 		Long id,
 		String titulo
 		) {
 	
-	public ListaTarefaRecordDTO(ListaTarefa listaTarefa) {
+	public ListaTarefaDTO(ListaTarefa listaTarefa) {
         this(listaTarefa.getId(), listaTarefa.getTitulo());
     }
 	
