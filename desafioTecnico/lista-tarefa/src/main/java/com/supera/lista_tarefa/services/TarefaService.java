@@ -119,6 +119,15 @@ public class TarefaService {
 	    // Salva a tarefa atualizada
 	    return repository.save(tarefaParaSerAtualizado);
 	}
+	@Transactional
+	public void deleteTarefa(Long id) {
+        // Procura por ID e verifica se esta presente, se estiver deleta e se nao estiver lança exception
+        repository.findById(id).ifPresentOrElse(
+                repository::delete, () -> {
+                    throw new RuntimeException(String.format("Tarefa de ID '%d' não foi encontrada.", id));
+                }
+        );
+    }
 
 
 }
