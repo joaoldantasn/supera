@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,6 +49,19 @@ public class ListaTarefaController {
 		// criada
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdListaTarefa);
 	}
+	
+	// Endpoint para atualizar lista de tarefas
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<ListaComTarefaDTO> updateListaTarefas(@PathVariable Long id,
+                                                                 @RequestBody ListaComTarefaDTO listaComTarefasDTO)
+    {
+        try {
+        	ListaComTarefaDTO listaAtualizada = service.updateListaTarefas(id, listaComTarefasDTO);
+            return ResponseEntity.ok(listaAtualizada);
+        } catch(RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 	
     // Endpoint para deletar lista de tarefas
     @DeleteMapping("/deletar/{id}")
