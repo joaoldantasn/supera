@@ -32,12 +32,12 @@ public class SubTarefaService {
 
  
 
-	public SubTarefaDTO updateSubTarefa(SubTarefaDTO subTarefaRecordDTO, Long id) {
+	public SubTarefaDTO updateSubTarefa(SubTarefaDTO subTarefaDTO, Long id) {
         SubTarefa subTarefa = subTarefaRepository.findById(id).orElseThrow(
                 () -> new RuntimeException(String.format("Sub-Tarefa de ID '%d' não foi encontrada.", id))
         );
 
-        subTarefa.setNome(subTarefaRecordDTO.nome());
+        subTarefa.setNome(subTarefaDTO.nome());
 
         SubTarefa subTarefaAtualizada = SubTarefa.builder()
                 .id(subTarefa.getId())

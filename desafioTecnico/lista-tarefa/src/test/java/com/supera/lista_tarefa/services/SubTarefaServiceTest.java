@@ -2,8 +2,6 @@ package com.supera.lista_tarefa.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -16,7 +14,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.supera.lista_tarefa.dtos.subtarefas.SubTarefaDTO;
-import com.supera.lista_tarefa.model.SubTarefa;
 import com.supera.lista_tarefa.repositories.SubTarefaRepository;
 
 @SpringBootTest
@@ -44,9 +41,7 @@ public class SubTarefaServiceTest {
         // When & Then
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> subTarefaService.findById(id));
         assertEquals("Sub-Tarefa de ID '1' não foi encontrada.", thrown.getMessage());
-    }
-
-    
+    }    
 
     @Test
     void testUpdateSubTarefaNotFound() {
@@ -59,7 +54,7 @@ public class SubTarefaServiceTest {
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> subTarefaService.updateSubTarefa(dto, id));
         assertEquals("Sub-Tarefa de ID '1' não foi encontrada.", thrown.getMessage());
     }
-
+    
     
     @Test
     void testDeleteSubTarefaByIdNotFound() {

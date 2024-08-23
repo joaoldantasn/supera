@@ -33,7 +33,7 @@ public class TarefaControllerTest {
 
     @MockBean
     private TarefaService tarefaService;
-
+    
     @MockBean
     private PagedResourcesAssembler<TarefaDTO> pagedResourcesAssembler;
 
@@ -93,4 +93,6 @@ public class TarefaControllerTest {
 
         verify(tarefaService, times(1)).deleteTarefa(1L);
     }
+  
+    
 }
